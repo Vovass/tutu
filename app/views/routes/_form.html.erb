@@ -1,0 +1,18 @@
+<%= form_with(model: @route) do |form| %>
+
+  <%= render 'common/errors', resource: @route   %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+<!--  <div class="field">-->
+    <%#= form.label :current_station , "Current Station"%>
+    <%#= form.collection_select :current_station_id, RailwayStation.all, :id, :title %>
+<!--  </div>-->
+
+  <div class="actions">
+    <%= form.submit "#{@route.new_record? ? 'Создать' : 'Изменить' }"%>
+  </div>
+<% end %>
