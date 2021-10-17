@@ -8,6 +8,11 @@
 <!--  <strong> On the Station -  </strong>-->
   <%#= @route.current_station.present? ? @route.current_station.title : "No route"  %>
 <!--</p>-->
+<% @route.railway_stations.each do |rs| %>
+  <ul>
+    <li><%= rs.title %></li>
+  </ul>
+<% end %>
 
 <%= link_to 'Edit', edit_route_path(@route) %> |
 <%= link_to 'Back', routes_path %>
