@@ -31,7 +31,7 @@ class Admin::RailwayStationsController < Admin::BaseController
 
     respond_to do |format|
       if @railway_station.save
-        format.html { redirect_to @railway_station, notice: "Railway station was successfully created." }
+        format.html { redirect_to [:admin, @railway_station], notice: "Railway station was successfully created." }
         format.json { render :show, status: :created, location: @railway_station }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -44,7 +44,7 @@ class Admin::RailwayStationsController < Admin::BaseController
   def update
     respond_to do |format|
       if @railway_station.update(railway_station_params)
-        format.html { redirect_to @railway_station, notice: "Railway station was successfully updated." }
+        format.html { redirect_to [:admin, @railway_station], notice: "Railway station was successfully updated." }
         format.json { render :show, status: :ok, location: @railway_station }
       else
         format.html { render :edit, status: :unprocessable_entity }
