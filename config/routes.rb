@@ -1,7 +1,16 @@
 Rails.application.routes.draw do
-  resources :railway_stations
-  resources :trains
+  resources :railway_stations do
+    patch :update_position, on: :member
+  end
+
+  resources :trains do
+    resources :carriages, shallow: true # частичная вложенность только для index create new
+  end
+
   resources :routes
+
+  resources :search, only: [:new, :show, :edit]
+
   get 'welcome/index'
 
   root 'welcome#index'
